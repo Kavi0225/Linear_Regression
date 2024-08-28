@@ -24,11 +24,11 @@ model = LinearRegression()
 model.fit(X_train, y_train)
 
 # Save the model
-with open('house_price_model.pkl', 'wb') as f:
+with open('../../../../PycharmProjects/pythonProject/house_price_model.pkl', 'wb') as f:
     pickle.dump(model, f)
 
 # Load the model for prediction
-with open('house_price_model.pkl', 'rb') as f:
+with open('../../../../PycharmProjects/pythonProject/house_price_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
 # Predictions
