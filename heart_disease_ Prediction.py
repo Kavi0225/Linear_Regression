@@ -32,6 +32,5 @@ rate = (count / 100)*100
 print(f"\nOut of 100 randomly sampled individuals, {count} were predicted to have heart disease\n")
 print(f"predict rate of percentage= {int(rate)}% heart disease")
 
-
 ####        printing the score of the model         ####
 print("\n prediction score of the model\n",f"{int(model.score(x_test,y_test)*100)}%")

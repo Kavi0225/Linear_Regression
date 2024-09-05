@@ -4,7 +4,6 @@ from sklearn.linear_model import LinearRegression
 df = pd.read_csv('Gold Price Prediction.csv')
 ####          droping the nan rows            ####
 df = df.dropna()
-print(df.head())
 ####          traing data          ####
 x = df[['Monthly Inflation Rate', 'EFFR Rate', 'Volume ','Treasury Par Yield Month', 'Treasury Par Yield Two Year','Treasury Par Yield Curve Rates (10 Yr)', 'DXY', 'SP Open', 'VIX','Crude']]
 ####          output data          ####
