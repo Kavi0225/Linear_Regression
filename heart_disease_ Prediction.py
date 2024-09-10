@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
 
 #### loading the data into dataframe        ####
 df = pd.read_csv('framingham.csv')
@@ -17,11 +18,15 @@ x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size= 0.3, random
 ####        training the LogisticRegression model       ####
 model = LogisticRegression(max_iter= 5000)
 
+model_tree = DecisionTreeClassifier(max_depth=25,max_features=30,max_leaf_nodes=60)
+
 ####        fiting the x and y train data into model        ####
 model.fit(x_train,y_train)
+model_tree.fit(x_train,y_train)
 
 ####        predicting the disease rate         ####
-pred = model.predict(x_train.sample(100))
+pred = model_tree.predict(x_train.sample(100))
+
 print("\nthe predicted values for random 100 sample\n\n",pred)
 
 count = 0
@@ -33,4 +38,4 @@ print(f"\nOut of 100 randomly sampled individuals, {count} were predicted to hav
 print(f"predict rate of percentage= {int(rate)}% heart disease")
 
 ####        printing the score of the model         ####
-print("\n prediction score of the model\n",f"{int(model.score(x_test,y_test)*100)}%")
+print("\n prediction score of the model\n",f"{int(model_tree.score(x_test,y_test)*100)}%")
